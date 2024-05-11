@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="2" failures="0" errors="0" time="1.404">
+  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2023-06-23T13:25:30" time="0.555" tests="1">
+    <testcase classname=" render correctly" name=" render correctly" time="0.111">
+    </testcase>
+  </testsuite>
+  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2023-06-23T13:25:30" time="1.106" tests="1">
+    <testcase classname=" App renders correctly" name=" App renders correctly" time="0.009">
+    </testcase>
+  </testsuite>
+</testsuites>

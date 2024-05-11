@@ -1,0 +1,35 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:ios)
+
+platform :ios do
+  desc "Push a new beta build to TestFlight"
+  lane :beta do
+    setup_ci if ENV['CI']
+    api_key = app_store_connect_api_key(
+      key_id: '3BBY5NDVKL',
+      issuer_id: 'd2ab121d-493a-42cd-9795-5450a9cd2251',
+      key_filepath: './fastlane/certs/AuthKey_3BBY5NDVKL.p8',
+      duration: 1200,
+      in_house: false
+    )
+    build_app(workspace: "Shuttle.xcworkspace", scheme: "Shuttle", clean: true,
+    export_method: "app-store",
+    build_path: "./builds",
+    output_directory: "./builds")
+    pilot(api_key: api_key)
+  end
+end

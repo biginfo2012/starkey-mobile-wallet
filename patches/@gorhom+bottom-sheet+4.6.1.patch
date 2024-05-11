@@ -1,0 +1,31 @@
+diff --git a/node_modules/@gorhom/bottom-sheet/src/utilities/getRefNativeTag.ts b/node_modules/@gorhom/bottom-sheet/src/utilities/getRefNativeTag.ts
+index d4f3cc4..794a175 100644
+--- a/node_modules/@gorhom/bottom-sheet/src/utilities/getRefNativeTag.ts
++++ b/node_modules/@gorhom/bottom-sheet/src/utilities/getRefNativeTag.ts
+@@ -27,17 +27,17 @@ export function getRefNativeTag(ref: unknown) {
+     nativeTag = ref.current._nativeTag;
+   }
+ 
+-  if (!nativeTag || typeof nativeTag !== 'number') {
+-    throw new Error(
+-      `Unexpected nativeTag: ${refType}; nativeTag=${nativeTag} 
++  // if (!nativeTag || typeof nativeTag !== 'number') {
++  //   throw new Error(
++  //     `Unexpected nativeTag: ${refType}; nativeTag=${nativeTag} 
+ 
+-			createBottomSheetScrollableComponent's ScrollableComponent needs to return 
+-			a reference that contains a nativeTag to a Native HostComponent.
++	// 		createBottomSheetScrollableComponent's ScrollableComponent needs to return 
++	// 		a reference that contains a nativeTag to a Native HostComponent.
+ 
+-			ref=${ref}
+-			`
+-    );
+-  }
++	// 		ref=${ref}
++	// 		`
++  //   );
++  // }
+ 
+   return nativeTag;
+ }

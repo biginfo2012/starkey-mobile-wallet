@@ -1,0 +1,8 @@
+app_identifier("com.codezeroes.shuttle") # The bundle identifier of your app
+apple_id("codezeros.ios@gmail.com") # Your Apple Developer Portal username
+
+itc_team_id("3BBY5NDVKL") # App Store Connect Team ID
+team_id("56F3DAV798") # Developer Portal Team ID
+
+# For more information about the Appfile, see:
+#     https://docs.fastlane.tools/advanced/#appfile

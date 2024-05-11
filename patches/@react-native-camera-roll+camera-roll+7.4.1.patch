@@ -1,0 +1,20 @@
+diff --git a/node_modules/@react-native-camera-roll/camera-roll/ios/RNCCameraRoll.mm b/node_modules/@react-native-camera-roll/camera-roll/ios/RNCCameraRoll.mm
+index 4769d28..714b713 100644
+--- a/node_modules/@react-native-camera-roll/camera-roll/ios/RNCCameraRoll.mm
++++ b/node_modules/@react-native-camera-roll/camera-roll/ios/RNCCameraRoll.mm
+@@ -207,6 +207,15 @@ RCT_EXPORT_METHOD(saveToCameraRoll:(NSURLRequest *)request
+         options.fetchLimit = 1;
+         PHFetchResult<PHAsset *> *createdAsset = [PHAsset fetchAssetsWithLocalIdentifiers:@[placeholder.localIdentifier]
+                                                                                   options:options];
++
++
++     // workaround waiting for https://github.com/react-native-cameraroll/react-native-cameraroll/issues/575 to be resolved
++       if (![createdAsset isKindOfClass:[PHAsset class]]) {
++         resolve(@{
++           @"node": [NSNull null]
++        });
++         return;
++        }
+         if (createdAsset.count < 1) {
+           reject(kErrorUnableToSave, nil, nil);
+           return;

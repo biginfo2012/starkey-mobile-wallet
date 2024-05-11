@@ -1,0 +1,21 @@
+{
+  "extends": "@react-native/typescript-config/tsconfig.json",
+  "compilerOptions": {
+    "jsx": "react",
+    "types": ["react-native", "jest", "node"],
+    "typeRoots": ["@types", "./node_modules/@types"],
+    "baseUrl": ".",
+    "paths": {
+      "screens/*": ["./src/screens/*"],
+      "components/*": ["./src/components/*"],
+      "theme/*": ["./src/theme/*"],
+      "hooks/*": ["./src/hooks/*"],
+      "services/*": ["./src/services/*"],
+      "algorithms/*": ["./src/algorithms/*"],
+      "customHooks/*": ["src/customHooks/*"],
+      "store/*": ["src/store/*"],
+      "nativeBridge/*": ["./src/nativeBridge/*"],
+      "types/*": ["./@types/*"]
+    }
+  }
+}

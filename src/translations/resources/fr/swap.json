@@ -1,0 +1,23 @@
+{
+  "Swap": "Swap",
+  "network": "Network",
+  "swapFrom": "Swap from",
+  "swapTo": "Swap to",
+  "search_token_name_or_address": "Token name or address",
+  "insufficient_gas_fee": "Insufficient gas fee",
+  "insufficient_balance": "$t(common:insufficient_balance)",
+  "add_to_the_wallet": "Add to the wallet",
+  "max_slippage": "Max Slippage",
+  "estimated_time": "Estimated Time",
+  "review": "Review",
+  "max_slippage_desc": "If the rate changes between the time your order is placed and confirmed it's called \"slippage\". Your Swap will automatically cancel if slippage exceeds your \"max slippage\" setting.",
+  "apply": "Apply",
+  "provider": "Provider",
+  "receive": "Receive",
+  "rate": "Rate",
+  "estimated_fee": "Estimated Fee",
+  "minutes": "1-5 minutes",
+  "swap_activity": "Swap Activity",
+  "testnet": "Testnet",
+  "balance": "Balance:"
+}

@@ -1,0 +1,86 @@
+diff --git a/node_modules/@ptomasroos/react-native-multi-slider/MultiSlider.js b/node_modules/@ptomasroos/react-native-multi-slider/MultiSlider.js
+index f3114aa..97d5cbe 100755
+--- a/node_modules/@ptomasroos/react-native-multi-slider/MultiSlider.js
++++ b/node_modules/@ptomasroos/react-native-multi-slider/MultiSlider.js
+@@ -13,14 +13,16 @@ import {
+ import DefaultMarker from './DefaultMarker';
+ import DefaultLabel from './DefaultLabel';
+ import { createArray, valueToPosition, positionToValue } from './converters';
++import LinearGradient from 'react-native-linear-gradient';
+ 
+ export default class MultiSlider extends React.Component {
+   static defaultProps = {
++    colorGradient: [],
+     values: [0],
+-    onValuesChangeStart: () => {},
+-    onValuesChange: values => {},
+-    onValuesChangeFinish: values => {},
+-    onMarkersPosition: values => {},
++    onValuesChangeStart: () => { },
++    onValuesChange: values => { },
++    onValuesChangeFinish: values => { },
++    onMarkersPosition: values => { },
+     step: 1,
+     min: 0,
+     max: 10,
+@@ -154,8 +156,8 @@ export default class MultiSlider extends React.Component {
+       (this.props.allowOverlap
+         ? 0
+         : this.props.minMarkerOverlapDistance > 0
+-        ? this.props.minMarkerOverlapDistance
+-        : this.stepLength);
++          ? this.props.minMarkerOverlapDistance
++          : this.stepLength);
+     var top = trueTop === 0 ? 0 : trueTop || this.props.sliderLength;
+     var confined =
+       unconfined < bottom ? bottom : unconfined > top ? top : unconfined;
+@@ -221,8 +223,8 @@ export default class MultiSlider extends React.Component {
+       (this.props.allowOverlap
+         ? 0
+         : this.props.minMarkerOverlapDistance > 0
+-        ? this.props.minMarkerOverlapDistance
+-        : this.stepLength);
++          ? this.props.minMarkerOverlapDistance
++          : this.stepLength);
+     var top = this.props.sliderLength;
+     var confined =
+       unconfined < bottom ? bottom : unconfined > top ? top : unconfined;
+@@ -379,6 +381,7 @@ export default class MultiSlider extends React.Component {
+       sliderLength,
+       markerOffsetX,
+       markerOffsetY,
++      colorGradient
+     } = this.props;
+     const twoMarkers = this.props.values.length == 2; // when allowOverlap, positionTwo could be 0, identified as string '0' and throwing 'RawText 0 needs to be wrapped in <Text>' error
+ 
+@@ -431,13 +434,16 @@ export default class MultiSlider extends React.Component {
+     const body = (
+       <React.Fragment>
+         <View style={[styles.fullTrack, { width: sliderLength }]}>
+-          <View
++          <LinearGradient
+             style={[
+               styles.track,
+               this.props.trackStyle,
+               trackOneStyle,
+               { width: trackOneLength },
+             ]}
++            colors={colorGradient}
++            start={{ x: 0, y: 0 }}
++            end={{ x: 1, y: 0 }}
+           />
+           <View
+             style={[
+diff --git a/node_modules/@ptomasroos/react-native-multi-slider/index.d.ts b/node_modules/@ptomasroos/react-native-multi-slider/index.d.ts
+index 678df51..d6f1077 100644
+--- a/node_modules/@ptomasroos/react-native-multi-slider/index.d.ts
++++ b/node_modules/@ptomasroos/react-native-multi-slider/index.d.ts
+@@ -75,6 +75,7 @@ export interface MultiSliderProps {
+     imageBackgroundSource?: string;
+     enableLabel?: boolean;
+     vertical?: boolean;
++    colorGradient?: any[];
+ }
+ 
+-export default class MultiSlider extends React.Component<MultiSliderProps> {}
++export default class MultiSlider extends React.Component<MultiSliderProps> { }
